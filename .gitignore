@@ -78,3 +78,6 @@ jspm_packages/
 
 # Vite output
 dist
+
+algolia.config.json
+defaultItems.json

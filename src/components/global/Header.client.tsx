@@ -78,6 +78,7 @@ function MobileHeader({
   openMenu: () => void;
 }) {
   const {y} = useWindowScroll();
+  const dropdownRef = useRef(null);
 
   const styles = {
     button: 'relative flex items-center justify-center w-8 h-8',
@@ -93,14 +94,24 @@ function MobileHeader({
   return (
     <header role="banner" className={styles.container}>
       <div className="flex items-center justify-start w-full gap-4">
-        <button onClick={openMenu} className={styles.button}>
+        <div className="relative w-full rounded-none">
+          <AlgoliaAutocomplete dropdownRef={dropdownRef} />
+          <div
+            id="drawer-example"
+            className="absolute w-full z-40 bg-white mt-1 font-unica text-[15px] tracking-wide"
+            style={{boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'}}
+            aria-labelledby="drawer-label"
+            ref={dropdownRef}
+          ></div>
+        </div>
+        {/* <button onClick={openMenu} className={styles.button}>
           <IconMenu />
         </button>
         <form
           action={`/${countryCode ? countryCode + '/' : ''}search`}
           className="items-center gap-2 sm:flex"
-        >
-          {/* <div className="relative rounded-none">
+        > */}
+        {/* <div className="relative rounded-none">
             <AlgoliaAutocomplete dropdownRef={dropdownRef} />
             <div
               id="drawer-example"
@@ -110,7 +121,7 @@ function MobileHeader({
               ref={dropdownRef}
             ></div>
           </div> */}
-          <button type="submit" className={styles.button}>
+        {/* <button type="submit" className={styles.button}>
             <IconSearch />
           </button>
           <Input
@@ -124,7 +135,7 @@ function MobileHeader({
             placeholder="Search"
             name="q"
           />
-        </form>
+        </form> */}
       </div>
 
       <Link
