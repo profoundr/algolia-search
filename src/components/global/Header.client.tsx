@@ -104,38 +104,6 @@ function MobileHeader({
             ref={dropdownRef}
           ></div>
         </div>
-        {/* <button onClick={openMenu} className={styles.button}>
-          <IconMenu />
-        </button>
-        <form
-          action={`/${countryCode ? countryCode + '/' : ''}search`}
-          className="items-center gap-2 sm:flex"
-        > */}
-        {/* <div className="relative rounded-none">
-            <AlgoliaAutocomplete dropdownRef={dropdownRef} />
-            <div
-              id="drawer-example"
-              className="absolute w-full z-40 bg-white mt-1 font-unica text-[15px] tracking-wide"
-              style={{boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'}}
-              aria-labelledby="drawer-label"
-              ref={dropdownRef}
-            ></div>
-          </div> */}
-        {/* <button type="submit" className={styles.button}>
-            <IconSearch />
-          </button>
-          <Input
-            className={
-              isHome
-                ? 'focus:border-contrast/20 dark:focus:border-primary/20'
-                : 'focus:border-primary/20'
-            }
-            type="search"
-            variant="minisearch"
-            placeholder="Search"
-            name="q"
-          />
-        </form> */}
       </div>
 
       <Link
@@ -209,17 +177,6 @@ function DesktopHeader({
           action={`/${countryCode ? countryCode + '/' : ''}search`}
           className="flex items-center gap-2"
         >
-          {/* <Input
-            className={
-              isHome
-                ? 'focus:border-contrast/20 dark:focus:border-primary/20'
-                : 'focus:border-primary/20'
-            }
-            type="search"
-            variant="minisearch"
-            placeholder="Search"
-            name="q"
-          /> */}
           <div className="relative w-full rounded-none">
             <AlgoliaAutocomplete dropdownRef={dropdownRef} />
             <div
@@ -230,9 +187,6 @@ function DesktopHeader({
               ref={dropdownRef}
             ></div>
           </div>
-          {/* <button type="submit" className={styles.button}>
-            <IconSearch />
-          </button> */}
         </form>
         <Link to={'/account'} className={styles.button}>
           <IconAccount />
