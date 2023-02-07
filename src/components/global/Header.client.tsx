@@ -1,5 +1,8 @@
 import {Link, useUrl, useCart} from '@shopify/hydrogen';
 import {useWindowScroll} from 'react-use';
+import {useRef, useState, useEffect} from 'react';
+
+import AlgoliaAutocomplete from '../search/AlgoliaAutocomplete.client';
 
 import {
   Heading,
@@ -97,6 +100,16 @@ function MobileHeader({
           action={`/${countryCode ? countryCode + '/' : ''}search`}
           className="items-center gap-2 sm:flex"
         >
+          {/* <div className="relative rounded-none">
+            <AlgoliaAutocomplete dropdownRef={dropdownRef} />
+            <div
+              id="drawer-example"
+              className="absolute w-full z-40 bg-white mt-1 font-unica text-[15px] tracking-wide"
+              style={{boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'}}
+              aria-labelledby="drawer-label"
+              ref={dropdownRef}
+            ></div>
+          </div> */}
           <button type="submit" className={styles.button}>
             <IconSearch />
           </button>
@@ -156,12 +169,14 @@ function DesktopHeader({
       'relative flex items-center justify-center w-8 h-8 focus:ring-primary/5',
     container: `${
       isHome
-        ? 'bg-primary/80 dark:bg-contrast/60 text-contrast dark:text-primary shadow-darkHeader'
+        ? 'bg-primary/80 dark:bg-contrast/60 text-contrast  dark:text-primary shadow-darkHeader '
         : 'bg-contrast/80 text-primary'
     } ${
       y > 50 && !isHome ? 'shadow-lightHeader ' : ''
-    }hidden h-nav lg:flex items-center sticky transition duration-300 backdrop-blur-lg z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`,
+    }hidden h-nav lg:flex items-center sticky transition duration-300  z-40 top-0 justify-between w-full leading-none gap-8 px-12 py-8`,
   };
+
+  const dropdownRef = useRef(null);
 
   return (
     <header role="banner" className={styles.container}>
@@ -183,7 +198,7 @@ function DesktopHeader({
           action={`/${countryCode ? countryCode + '/' : ''}search`}
           className="flex items-center gap-2"
         >
-          <Input
+          {/* <Input
             className={
               isHome
                 ? 'focus:border-contrast/20 dark:focus:border-primary/20'
@@ -193,10 +208,20 @@ function DesktopHeader({
             variant="minisearch"
             placeholder="Search"
             name="q"
-          />
-          <button type="submit" className={styles.button}>
+          /> */}
+          <div className="relative w-full rounded-none">
+            <AlgoliaAutocomplete dropdownRef={dropdownRef} />
+            <div
+              id="drawer-example"
+              className="absolute w-full z-40 bg-white mt-1 font-unica text-[15px] tracking-wide"
+              style={{boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.1)'}}
+              aria-labelledby="drawer-label"
+              ref={dropdownRef}
+            ></div>
+          </div>
+          {/* <button type="submit" className={styles.button}>
             <IconSearch />
-          </button>
+          </button> */}
         </form>
         <Link to={'/account'} className={styles.button}>
           <IconAccount />

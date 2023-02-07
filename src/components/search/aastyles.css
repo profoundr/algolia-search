@@ -1,0 +1,73 @@
+:root {
+  --aa-primary-color-rgb: 136, 138, 145;
+  --aa-input-background-color-rgb: 252, 252, 252;
+  --aa-input-border-color-rgb: 229, 230, 231;
+  --aa-SubmitIcon-text-color-rgb: 136, 138, 145;
+  --aa-selected-color-rgb: 252, 252, 252;
+  --aa-selected-color-alpha: 1;
+  --aa-panel-max-height: 700px;
+}
+
+.aa-Input > div ::-webkit-input-placeholder,
+.aa-Input ::-moz-placeholder,
+.aa-Input :-ms-input-placeholder,
+.aa-Input :-moz-placeholder {
+  font-size: 10px !important;
+}
+
+.aa-Input {
+  padding: 0px 0px 0px 12px;
+}
+
+.aa-Form {
+  border-radius: 0 !important;
+  font-size: 13px !important;
+}
+
+.aa-InputWrapperPrefix {
+  display: none !important;
+}
+
+.aa-InputWrapperSuffix,
+.aa-ClearButton {
+  display: block !important;
+  padding: 0px 6px 0px 0px !important;
+}
+
+.aa-Item {
+  margin-left: -2px !important;
+}
+
+.aa-DetachedSearchButtonPlaceholder {
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+}
+
+.aa-DetachedSearchButton {
+  @media (max-width: 767px) {
+    border: none !important;
+  }
+  background-color: transparent !important;
+}
+
+.aa-SubmitIcon svg path {
+  viewbox: 0 0 28 28;
+  fill: none;
+  fillrule: evenodd;
+  d: path(
+    'M13.3 8.52a4.77 4.77 0 1 1-9.55 0 4.77 4.77 0 0 1 9.55 0Zm-.98 4.68a6.02 6.02 0 1 1 .88-.88l4.3 4.3-.89.88-4.3-4.3Z'
+  );
+}
+
+.aa-DetachedCancelButton {
+  text-indent: -9999px;
+  line-height: 0; /* Collapse the original line */
+}
+
+.aa-DetachedCancelButton::after {
+  content: 'Back';
+  text-indent: 0;
+  display: block;
+  line-height: initial; /* New content takes up original line height */
+}

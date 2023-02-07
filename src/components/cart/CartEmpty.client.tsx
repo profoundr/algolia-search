@@ -4,6 +4,7 @@ import {fetchSync} from '@shopify/hydrogen';
 import {Button, Text, ProductCard, Heading, Skeleton} from '~/components';
 import type {Product} from '@shopify/hydrogen/storefront-api-types';
 import {Suspense} from 'react';
+import LoadingBar from 'react-top-loading-bar';
 
 export function CartEmpty({
   onClose,
@@ -46,6 +47,7 @@ export function CartEmpty({
           className={`grid grid-cols-2 gap-x-6 gap-y-8 ${topProductsContainer[layout]}`}
         >
           <Suspense fallback={<Loading />}>
+            <LoadingBar />
             <TopProducts onClose={onClose} />
           </Suspense>
         </div>

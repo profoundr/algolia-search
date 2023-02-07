@@ -93,9 +93,7 @@ export default function Product() {
                   <Heading as="h1" format className="whitespace-normal">
                     {title}
                   </Heading>
-                  {vendor && (
-                    <Text className={'opacity-50 font-medium'}>{vendor}</Text>
-                  )}
+                  {vendor && <Text className={'font-medium'}>{vendor}</Text>}
                 </div>
                 <ProductForm />
                 <div className="grid gap-4 py-4">
